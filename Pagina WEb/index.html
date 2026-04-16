@@ -904,9 +904,8 @@
      REVEAL
   ───────────────────────────────────────── */
   .r {
-    opacity: 0;
-    transform: translateY(12px);
-    transition: opacity 0.62s var(--ease), transform 0.62s var(--ease);
+    opacity: 1;
+    transform: none;
   }
 
   .r.in { opacity: 1; transform: none; }
@@ -1128,4 +1127,208 @@
       <div class="wi r" data-d="ia">
         <video autoplay muted loop playsinline><source src="https://drive.google.com/uc?export=download&id=11BzcKKTffPlcexongZHB26WUrYuT9vX4" type="video/mp4"></video>
         <span class="wi__tag">Director IA</span>
-        <div class="wi__over"
+        <div class="wi__over"><span class="wi__cat">Director IA</span><span class="wi__title">IA · 01</span></div>
+      </div>
+      <div class="wi r d1" data-d="ia">
+        <video autoplay muted loop playsinline><source src="https://drive.google.com/uc?export=download&id=1z2PUawQPHePbEYVKtgU9nCXSj-ihkQ-I" type="video/mp4"></video>
+        <span class="wi__tag">Director IA</span>
+        <div class="wi__over"><span class="wi__cat">Director IA</span><span class="wi__title">IA · 02</span></div>
+      </div>
+      <div class="wi r d2" data-d="ia">
+        <video autoplay muted loop playsinline><source src="https://drive.google.com/uc?export=download&id=1cIoJoPKTDQP-y2ftj-KAaOADG6xW8Kob" type="video/mp4"></video>
+        <span class="wi__tag">Director IA</span>
+        <div class="wi__over"><span class="wi__cat">Director IA</span><span class="wi__title">IA · 03</span></div>
+      </div>
+      <div class="wi r" data-d="ia">
+        <video autoplay muted loop playsinline><source src="https://drive.google.com/uc?export=download&id=1fiOazL3jEzzZAo7flEt_jTW1Dt65VM7_" type="video/mp4"></video>
+        <span class="wi__tag">Director IA</span>
+        <div class="wi__over"><span class="wi__cat">Director IA</span><span class="wi__title">IA · 04</span></div>
+      </div>
+      <div class="wi wi--h r d1" data-d="ia">
+        <video autoplay muted loop playsinline><source src="https://drive.google.com/uc?export=download&id=1KbwYdCL4bK5hRC_ZGC7sMB01UwpMWgqZ" type="video/mp4"></video>
+        <span class="wi__tag">Director IA</span>
+        <div class="wi__over"><span class="wi__cat">Director IA</span><span class="wi__title">IA · 05</span></div>
+      </div>
+      <div class="wi wi--h r d2" data-d="ia">
+        <video autoplay muted loop playsinline><source src="https://drive.google.com/uc?export=download&id=1om0qFxLuOpzccZK2MSgbnEvN4BwBcSGk" type="video/mp4"></video>
+        <span class="wi__tag">Director IA</span>
+        <div class="wi__over"><span class="wi__cat">Director IA</span><span class="wi__title">IA · 06</span></div>
+      </div>
+      <div class="wi r" data-d="ia">
+        <video autoplay muted loop playsinline><source src="https://drive.google.com/uc?export=download&id=1Zw4A2t9_p0OonRz6P1IsutyFNkUfLJNq" type="video/mp4"></video>
+        <span class="wi__tag">Director IA</span>
+        <div class="wi__over"><span class="wi__cat">Director IA</span><span class="wi__title">IA · 07</span></div>
+      </div>
+      <div class="wi r d1" data-d="ia">
+        <video autoplay muted loop playsinline><source src="https://drive.google.com/uc?export=download&id=1ev19VfP-GIuur5PbjEBda9AYY8ES5x2H" type="video/mp4"></video>
+        <span class="wi__tag">Director IA</span>
+        <div class="wi__over"><span class="wi__cat">Director IA</span><span class="wi__title">IA · 08</span></div>
+      </div>
+      <div class="wi r d2" data-d="ia">
+        <video autoplay muted loop playsinline><source src="https://drive.google.com/uc?export=download&id=1xFqZN4dE2OfRU9NGDQuOoChQ-FWfyAZm" type="video/mp4"></video>
+        <span class="wi__tag">Director IA</span>
+        <div class="wi__over"><span class="wi__cat">Director IA</span><span class="wi__title">IA · 09</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MODAL -->
+  <div class="modal" id="modal">
+    <div class="modal__box">
+      <button class="modal__x" onclick="closeModal()">✕ Cerrar</button>
+      <iframe id="yt-frame" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about" class="about">
+    <div class="about__left">
+      <span class="about__label r">Sobre mí</span>
+      <p class="about__text r d1">
+        Fotografío, dirijo<br>y genero imágenes<br>
+        <em>desde Buenos Aires.</em>
+      </p>
+      <a class="about__cta r d2" href="#contact">
+        Trabajemos juntos
+        <span class="about__cta-bar"></span>
+      </a>
+    </div>
+    <div class="about__right">
+      <div class="about__photo r d1">
+        <img src="fotos/nrw1-2.jpg" alt="Valentino Calcagno" loading="lazy">
+      </div>
+      <div class="about__stats">
+        <div class="stat r"><div class="stat__n">340+</div><div class="stat__l">Rollos</div></div>
+        <div class="stat r d1"><div class="stat__n">12</div><div class="stat__l">Series</div></div>
+        <div class="stat r d2"><div class="stat__n">4</div><div class="stat__l">Expos.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <div class="contact__left">
+      <h2 class="contact__head r">Hablemos<br><em>de luz.</em></h2>
+      <a class="contact__email r d1" href="mailto:valencalcagno13@gmail.com">
+        valencalcagno13@gmail.com
+      </a>
+    </div>
+    <div class="contact__right r d1">
+      <form id="cf" onsubmit="sendForm(event)">
+        <div class="fg-row">
+          <div class="fg"><label>Nombre</label><input type="text" placeholder="Tu nombre" required autocomplete="name"></div>
+          <div class="fg"><label>Email</label><input type="email" placeholder="tu@correo.com" required autocomplete="email"></div>
+        </div>
+        <div class="fg" style="margin-top:1.3rem">
+          <label>Mensaje</label>
+          <textarea rows="4" placeholder="Escribí tu mensaje..."></textarea>
+        </div>
+        <button class="submit-btn" type="submit">Enviar</button>
+      </form>
+      <p class="form-ok" id="form-ok">Mensaje recibido —<br>hablamos pronto.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <span class="footer__copy">© 2024 Valentino Calcagno</span>
+    <div class="footer__links">
+      <a href="#" target="_blank" rel="noopener">Instagram</a>
+      <a href="#" target="_blank" rel="noopener">Behance</a>
+      <a href="#" target="_blank" rel="noopener">VSCO</a>
+    </div>
+  </footer>
+
+  <script>
+    'use strict';
+
+    // ── Nav solid on scroll ───────────────────
+    const nav = document.getElementById('nav');
+    const onScroll = () => nav.classList.toggle('solid', window.scrollY > 40);
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    // ── Scroll reveal ─────────────────────────
+    const revealObs = new IntersectionObserver(
+      entries => entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          revealObs.unobserve(e.target);
+        }
+      }),
+      { threshold: 0.05, rootMargin: '0px 0px -20px 0px' }
+    );
+    document.querySelectorAll('.r').forEach(el => revealObs.observe(el));
+
+    // ── Touch tap state for disc cards ────────
+    document.querySelectorAll('.disc').forEach(disc => {
+      disc.addEventListener('touchstart', () => {
+        document.querySelectorAll('.disc').forEach(d => d.classList.remove('tapped'));
+        disc.classList.add('tapped');
+      }, { passive: true });
+    });
+
+    // ── Show work section ─────────────────────
+    function showWork(filter) {
+      const sec = document.getElementById('work');
+      sec.classList.add('on');
+      setFilter(filter);
+      setTimeout(() => sec.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+    }
+
+    // ── Filter ────────────────────────────────
+    function setFilter(f) {
+      document.querySelectorAll('.fb').forEach(b =>
+        b.classList.toggle('on', b.dataset.f === f)
+      );
+      applyFilter(f);
+    }
+
+    function applyFilter(f) {
+      document.querySelectorAll('.wi').forEach(el => {
+        el.style.display = (f === 'all' || el.dataset.d === f) ? '' : 'none';
+      });
+    }
+
+    document.querySelectorAll('.fb').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.fb').forEach(b => b.classList.remove('on'));
+        btn.classList.add('on');
+        applyFilter(btn.dataset.f);
+      });
+    });
+
+    // ── YouTube modal ─────────────────────────
+    document.querySelectorAll('[data-yt]').forEach(el => {
+      el.addEventListener('click', () => {
+        document.getElementById('yt-frame').src =
+          `https://www.youtube.com/embed/${el.dataset.yt}?autoplay=1&rel=0&modestbranding=1`;
+        document.getElementById('modal').classList.add('on');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    function closeModal() {
+      document.getElementById('modal').classList.remove('on');
+      document.getElementById('yt-frame').src = '';
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('modal').addEventListener('click', e => {
+      if (e.target === e.currentTarget) closeModal();
+    });
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    // ── Form ──────────────────────────────────
+    function sendForm(e) {
+      e.preventDefault();
+      document.getElementById('cf').style.display = 'none';
+      document.getElementById('form-ok').style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>

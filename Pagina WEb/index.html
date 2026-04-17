@@ -41,7 +41,13 @@ ul{list-style:none}
 .hero{position:relative;height:100svh;min-height:560px;display:flex;flex-direction:column;justify-content:flex-end;padding:56px var(--pad) clamp(2rem,6vw,3.5rem);overflow:hidden;border-bottom:1px solid var(--line)}
 .hero__bg{position:absolute;inset:0;z-index:0;overflow:hidden}
 .hero__bg::after{content:'';position:absolute;inset:0;z-index:4;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");background-size:180px;opacity:.7;mix-blend-mode:overlay;pointer-events:none}
-.hero__bg-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.18) saturate(.6);transform:scale(1.05)}
+.hero__bg-layer{position:absolute;inset:-6%;width:112%;height:112%;will-change:transform}
+.hero__bg-layer img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.hero__bg-layer--a{filter:blur(4px) brightness(.45) saturate(.7);animation:drift-a 36s ease-in-out infinite alternate}
+.hero__bg-layer--b{filter:blur(4px) brightness(.4) saturate(.6);opacity:.65;animation:drift-b 48s ease-in-out infinite alternate}
+@keyframes drift-a{from{transform:scale(1.08) translate(-2%,-1%)}to{transform:scale(1.08) translate(2%,1%)}}
+@keyframes drift-b{from{transform:scale(1.12) translate(2%,.5%)}to{transform:scale(1.12) translate(-1%,-2%)}}
+@media(prefers-reduced-motion:reduce){.hero__bg-layer--a,.hero__bg-layer--b{animation:none}}
 .hero__vignette{position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(ellipse at 50% 110%,rgba(7,7,7,.9) 0%,transparent 65%),linear-gradient(to top,rgba(7,7,7,.97) 0%,rgba(7,7,7,.2) 50%,rgba(7,7,7,.65) 100%)}
 .hero__content{position:relative;z-index:2}
 .hero__eyebrow{font-family:var(--fd);font-size:clamp(.5rem,.8vw + .3rem,.65rem);font-weight:400;letter-spacing:.3em;text-transform:uppercase;color:var(--dim);margin-bottom:clamp(.8rem,2vw,1.4rem);opacity:0;animation:fade-up .7s var(--ease) .2s forwards}
@@ -64,7 +70,7 @@ ul{list-style:none}
 .disc{position:relative;height:clamp(280px,70svh,88svh);overflow:hidden;cursor:pointer;border-bottom:1px solid var(--line);-webkit-tap-highlight-color:transparent}
 .disc:last-child{border-bottom:none}
 @media(min-width:768px){.disc{border-bottom:none;border-right:1px solid var(--line)}.disc:last-child{border-right:none}}
-.disc__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;filter:brightness(.3);transform:scale(1.05);transition:filter .8s var(--ease),transform 1.1s var(--ease);will-change:transform,filter}@media(max-width:767px){.disc__img{filter:brightness(.45)}}
+.disc__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center;filter:brightness(.3);transform:scale(1.05);transition:filter .8s var(--ease),transform 1.1s var(--ease);will-change:transform,filter}@media(max-width:767px){.disc__img{filter:brightness(.45)}}
 .disc:hover .disc__img,.disc.tapped .disc__img{filter:brightness(.16);transform:scale(1.12)}
 .disc__body{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:var(--pad);z-index:2}
 .disc__num{font-size:.5rem;font-weight:700;letter-spacing:.4em;text-transform:uppercase;color:rgba(255,255,255,.15);margin-bottom:.8rem}
@@ -229,9 +235,8 @@ ul{list-style:none}
 
 <section id="top" class="hero">
   <div class="hero__bg" aria-hidden="true">
-    <video class="hero__bg-video" autoplay muted loop playsinline>
-      <source src="fotos/IA6.mp4" type="video/mp4">
-    </video>
+    <div class="hero__bg-layer hero__bg-layer--a"><img src="fotos/portadaweb.jpg" alt="" loading="eager" fetchpriority="high"></div>
+    <div class="hero__bg-layer hero__bg-layer--b"><img src="fotos/portadaweb.jpg" alt="" loading="eager"></div>
   </div>
   <div class="hero__vignette" aria-hidden="true"></div>
   <div class="hero__content">
@@ -511,3 +516,7 @@ document.addEventListener('keydown', e => {
 </div>
 </body>
 </html>
+Listo
+Dos cambios aplicados — hero vuelve a la foto original, y los videos de Photography y Filmmaker ahora usan center center para que no se corten. Subí el código y en un minuto se ve en producción.
+
+

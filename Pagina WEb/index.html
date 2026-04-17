@@ -159,7 +159,7 @@ ul{list-style:none}
 .modal__x:hover{color:var(--white)}
 .about{display:grid;grid-template-columns:1fr;border-bottom:1px solid var(--line)}
 @media(min-width:768px){.about{grid-template-columns:1fr 1fr}}
-.about__left{padding:clamp(3rem,8vw,5.5rem) var(--pad);display:flex;flex-direction:column;justify-content:space-between;gap:2.5rem;border-bottom:1px solid var(--line)}
+.about__left{padding:clamp(4rem,10vw,7rem) var(--pad);display:flex;flex-direction:column;justify-content:space-between;gap:2.5rem;border-bottom:1px solid var(--line)}
 @media(min-width:768px){.about__left{border-bottom:none;border-right:1px solid var(--line)}}
 .about__label{font-family:var(--fd);font-size:.54rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--muted)}
 .about__text{font-family:var(--fd);font-size:clamp(1.3rem,3.5vw,2rem);font-weight:700;line-height:1.15;letter-spacing:-.02em}
@@ -179,13 +179,13 @@ ul{list-style:none}
 .stat__l{font-size:.52rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
 .contact{display:grid;grid-template-columns:1fr;border-bottom:1px solid var(--line)}
 @media(min-width:768px){.contact{grid-template-columns:1fr 1fr}}
-.contact__left{padding:clamp(3rem,8vw,5.5rem) var(--pad);display:flex;flex-direction:column;justify-content:space-between;gap:2rem;border-bottom:1px solid var(--line)}
+.contact__left{padding:clamp(4rem,10vw,7rem) var(--pad);display:flex;flex-direction:column;justify-content:space-between;gap:2rem;border-bottom:1px solid var(--line)}
 @media(min-width:768px){.contact__left{border-bottom:none;border-right:1px solid var(--line)}}
 .contact__head{font-family:var(--fd);font-size:clamp(2.8rem,9vw,6rem);font-weight:800;line-height:.9;letter-spacing:-.04em}
 .contact__head em{font-style:normal;color:#ffffff}
 .contact__email{font-size:clamp(.65rem,1.8vw,.8rem);letter-spacing:.05em;color:var(--dim);border-bottom:1px solid var(--line);padding-bottom:3px;display:inline-block;transition:color .2s,border-color .2s}
 .contact__email:hover{color:var(--white);border-color:var(--dim)}
-.contact__right{padding:clamp(3rem,8vw,5.5rem) var(--pad);background:var(--bg2)}
+.contact__right{padding:clamp(4rem,10vw,7rem) var(--pad);background:var(--bg2)}
 .fg{margin-bottom:1.5rem}
 .fg label{display:block;font-family:var(--fd);font-size:.52rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem}
 .fg input,.fg textarea{width:100%;background:none;border:none;border-bottom:1px solid var(--line);padding:.55rem 0;font-family:'Space Grotesk',sans-serif;font-weight:300;color:var(--white);outline:none;transition:border-color .2s;resize:none;font-size:max(.88rem,16px);-webkit-appearance:none;border-radius:0}
@@ -284,53 +284,48 @@ ul{list-style:none}
   </div>
   <div class="hero__vignette" aria-hidden="true"></div>
   <div class="hero__content">
-    <p class="hero__eyebrow">Buenos Aires · Portfolio 2024</p>
     <h1 class="hero__name">
       <span class="hero__name-row" id="n1"></span>
       <span class="hero__name-row" id="n2"></span>
     </h1>
     <div class="hero__foot">
       <div class="hero__roles">
+        <span class="hero__role">AI Director</span>
         <span class="hero__role">Photography</span>
         <span class="hero__role">Filmmaker</span>
-        <span class="hero__role">AI Director</span>
-      </div>
-      <div class="hero__scroll" aria-hidden="true">
-        <span>Scroll</span>
-        <div class="hero__scroll-bar"></div>
       </div>
     </div>
   </div>
 </section>
 
 <section id="disciplines" class="disciplines">
-  <div class="disc r" onclick="showWork('foto')" role="button" tabindex="0">
-    <video class="disc__img" autoplay muted loop playsinline><source src="fotos/portadafotos.mp4" type="video/mp4"></video>
-    <div class="disc__body">
-      <span class="disc__num">01</span>
-      <h2 class="disc__title">Photography</h2>
-      <p class="disc__sub">Analog · Digital<br>E-commerce · Presskit</p>
-      <span class="disc__cta">See work <span class="disc__cta-bar"></span></span>
-    </div>
-  </div>
-  <div class="disc r d1" onclick="showWork('film')" role="button" tabindex="0">
-    <video class="disc__img" autoplay muted loop playsinline><source src="fotos/tomvin%20test.mp4" type="video/mp4"></video>
-    <div class="disc__body">
-      <span class="disc__num">02</span>
-      <h2 class="disc__title">Filmmaker</h2>
-      <p class="disc__sub">Short films · Documentaries<br>Music videos</p>
-      <span class="disc__cta">See work <span class="disc__cta-bar"></span></span>
-    </div>
-  </div>
-  <div class="disc r d2" onclick="showWork('ia')" role="button" tabindex="0">
+  <div class="disc r" onclick="showWork('ia')" role="button" tabindex="0">
     <video class="disc__img" autoplay muted loop playsinline>
-      <source src="fotos/IA1.mp4" type="video/mp4">
+      <source data-src="fotos/IA1.mp4" type="video/mp4">
     </video>
     <div class="disc__body">
-      <span class="disc__num">03</span>
+      <span class="disc__num">01</span>
       <h2 class="disc__title">AI Director</h2>
       <p class="disc__sub">Generative imagery<br>AI video · Visual direction</p>
-      <span class="disc__cta">See work <span class="disc__cta-bar"></span></span>
+      <span class="disc__cta">View <span class="disc__cta-bar"></span></span>
+    </div>
+  </div>
+  <div class="disc r d1" onclick="showWork('foto')" role="button" tabindex="0">
+    <video class="disc__img" autoplay muted loop playsinline><source src="fotos/portadafotos.mp4" type="video/mp4"></video>
+    <div class="disc__body">
+      <span class="disc__num">02</span>
+      <h2 class="disc__title">Photography</h2>
+      <p class="disc__sub">Analog · Digital<br>E-commerce · Presskit</p>
+      <span class="disc__cta">View <span class="disc__cta-bar"></span></span>
+    </div>
+  </div>
+  <div class="disc r d2" onclick="showWork('film')" role="button" tabindex="0">
+    <video class="disc__img" autoplay muted loop playsinline><source src="fotos/tomvin%20test.mp4" type="video/mp4"></video>
+    <div class="disc__body">
+      <span class="disc__num">03</span>
+      <h2 class="disc__title">Filmmaker</h2>
+      <p class="disc__sub">Short films · Documentaries<br>Music videos</p>
+      <span class="disc__cta">View <span class="disc__cta-bar"></span></span>
     </div>
   </div>
 </section>
@@ -372,15 +367,15 @@ ul{list-style:none}
     <div class="wi r d2" data-d="film" data-yt="Mljtghw9AW0"><img src="https://img.youtube.com/vi/Mljtghw9AW0/maxresdefault.jpg" alt="" loading="lazy"><div class="wi__play"><svg width="10" height="12" viewBox="0 0 10 12" fill="white"><path d="M0 0l10 6-10 6V0z"/></svg></div></div>
     <div class="wi r" data-d="film" data-yt="aOoRfQE7Vsc"><img src="https://img.youtube.com/vi/aOoRfQE7Vsc/maxresdefault.jpg" alt="" loading="lazy"><div class="wi__play"><svg width="10" height="12" viewBox="0 0 10 12" fill="white"><path d="M0 0l10 6-10 6V0z"/></svg></div></div>
     <div class="wi r d1" data-d="film" data-yt="odBH04Y6ZRM"><img src="https://img.youtube.com/vi/odBH04Y6ZRM/maxresdefault.jpg" alt="" loading="lazy"><div class="wi__play"><svg width="10" height="12" viewBox="0 0 10 12" fill="white"><path d="M0 0l10 6-10 6V0z"/></svg></div></div>
-    <div class="wi r" data-d="ia"><video autoplay muted loop playsinline><source src="fotos/IA1.mp4" type="video/mp4"></video></div>
-    <div class="wi r d1" data-d="ia"><video autoplay muted loop playsinline><source src="fotos/IA2.mp4" type="video/mp4"></video></div>
-    <div class="wi r d2" data-d="ia"><video autoplay muted loop playsinline><source src="fotos/IA3.mp4" type="video/mp4"></video></div>
-    <div class="wi r" data-d="ia"><video autoplay muted loop playsinline><source src="fotos/IA4.mp4" type="video/mp4"></video></div>
-    <div class="wi wi--h r d1" data-d="ia"><video autoplay muted loop playsinline><source src="fotos/IA5.mp4" type="video/mp4"></video></div>
-    <div class="wi wi--h r d2" data-d="ia"><video autoplay muted loop playsinline><source src="fotos/IA6.mp4" type="video/mp4"></video></div>
-    <div class="wi r" data-d="ia"><video autoplay muted loop playsinline><source src="fotos/IA7.mp4" type="video/mp4"></video></div>
-    <div class="wi r d1" data-d="ia"><video autoplay muted loop playsinline><source src="fotos/IA8.mp4" type="video/mp4"></video></div>
-    <div class="wi r d2" data-d="ia"><video autoplay muted loop playsinline><source src="fotos/IA9.mp4" type="video/mp4"></video></div>
+    <div class="wi r" data-d="ia"><video autoplay muted loop playsinline><source data-src="fotos/IA1.mp4" type="video/mp4"></video></div>
+    <div class="wi r d1" data-d="ia"><video autoplay muted loop playsinline><source data-src="fotos/IA2.mp4" type="video/mp4"></video></div>
+    <div class="wi r d2" data-d="ia"><video autoplay muted loop playsinline><source data-src="fotos/IA3.mp4" type="video/mp4"></video></div>
+    <div class="wi r" data-d="ia"><video autoplay muted loop playsinline><source data-src="fotos/IA4.mp4" type="video/mp4"></video></div>
+    <div class="wi wi--h r d1" data-d="ia"><video autoplay muted loop playsinline><source data-src="fotos/IA5.mp4" type="video/mp4"></video></div>
+    <div class="wi wi--h r d2" data-d="ia"><video autoplay muted loop playsinline><source data-src="fotos/IA6.mp4" type="video/mp4"></video></div>
+    <div class="wi r" data-d="ia"><video autoplay muted loop playsinline><source data-src="fotos/IA7.mp4" type="video/mp4"></video></div>
+    <div class="wi r d1" data-d="ia"><video autoplay muted loop playsinline><source data-src="fotos/IA8.mp4" type="video/mp4"></video></div>
+    <div class="wi r d2" data-d="ia"><video autoplay muted loop playsinline><source data-src="fotos/IA9.mp4" type="video/mp4"></video></div>
   </div>
 </section>
 
@@ -394,8 +389,8 @@ ul{list-style:none}
 <section id="about" class="about">
   <div class="about__left">
     <span class="about__label r">About</span>
-    <p class="about__text r d1">I shoot, direct<br>and generate images<br><span style="color:#ffffff">from Buenos Aires.</span></p>
-    <a class="about__cta r d2" href="#contact">Let's work together <span class="about__cta-bar"></span></a>
+    <p class="about__text r d1">I build visual worlds<br>for brands — analog film<br>to AI imagery.<br><span style="color:#ffffff">Buenos Aires. Everywhere.</span></p>
+    <a class="about__cta r d2" href="#contact">Start a project <span class="about__cta-bar"></span></a>
   </div>
   <div class="about__right">
     <div class="about__photo r d1"><img src="fotos/bio.jpg" alt="Valentino Calcagno" loading="lazy"></div>
@@ -477,6 +472,23 @@ function sendForm(e){
     });
 }
 
+
+
+// ── Lazy load IA videos ──
+const videoObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting) {
+      const video = e.target;
+      const src = video.querySelector('source');
+      if(src && src.dataset.src) {
+        src.src = src.dataset.src;
+        video.load();
+        videoObs.unobserve(video);
+      }
+    }
+  });
+}, {rootMargin: '200px'});
+document.querySelectorAll('.wi video').forEach(v => videoObs.observe(v));
 
 // ── Blur focus ──
 document.getElementById('n1').innerHTML = '<span class="blur-in" style="animation-delay:0.3s;display:block">Valentino</span>';

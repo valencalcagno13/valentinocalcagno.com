@@ -32,8 +32,8 @@ ul{list-style:none}
 .hero__bg::after{content:'';position:absolute;inset:0;z-index:4;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");background-size:180px;opacity:.7;mix-blend-mode:overlay;pointer-events:none}
 .hero__bg-layer{position:absolute;inset:-6%;width:112%;height:112%;will-change:transform}
 .hero__bg-layer img{width:100%;height:100%;object-fit:cover;object-position:center top}
-.hero__bg-layer--a{filter:blur(20px) brightness(.25) saturate(.6);animation:drift-a 36s ease-in-out infinite alternate}
-.hero__bg-layer--b{filter:blur(15px) brightness(.2) saturate(.5);opacity:.65;animation:drift-b 48s ease-in-out infinite alternate}
+.hero__bg-layer--a{filter:blur(4px) brightness(.45) saturate(.7));animation:drift-a 36s ease-in-out infinite alternate}
+.hero__bg-layer--b{filter:blur(4px) brightness(.4) saturate(.6);opacity:.65;animation:drift-b 48s ease-in-out infinite alternate}
 @keyframes drift-a{from{transform:scale(1.08) translate(-2%,-1%)}to{transform:scale(1.08) translate(2%,1%)}}
 @keyframes drift-b{from{transform:scale(1.12) translate(2%,.5%)}to{transform:scale(1.12) translate(-1%,-2%)}}
 @media(prefers-reduced-motion:reduce){.hero__bg-layer--a,.hero__bg-layer--b{animation:none}}

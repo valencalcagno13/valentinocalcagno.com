@@ -16,53 +16,7 @@
 <meta name="keywords" content="photographer buenos aires, filmmaker argentina, AI director, campaign photography, fashion photography, generative imagery">
 <title>Valentino Calcagno</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSIjMDcwNzA3Ii8+PHRleHQgeD0iMTYiIHk9IjIyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0ic2VyaWYiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LXNpemU9IjE2IiBmaWxsPSIjZWZlZmVmIj5WQzwvdGV4dD48L3N2Zz4=">
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
-// ── Custom cursor ──
-const cur = document.getElementById('cursor');
-if(cur) {
-  document.addEventListener('mousemove', e => {
-    cur.style.left = e.clientX + 'px';
-    cur.style.top = e.clientY + 'px';
-  }, {passive: true});
-  document.querySelectorAll('a,button,.disc,.wi').forEach(el => {
-    el.addEventListener('mouseenter', () => cur.classList.add('hover'));
-    el.addEventListener('mouseleave', () => cur.classList.remove('hover'));
-  });
-}
-
-// ── Lightbox ──
-let lbImgs = [];
-let lbIdx = 0;
-document.querySelectorAll('.wi img').forEach((img, i) => {
-  img.addEventListener('click', () => {
-    lbImgs = Array.from(document.querySelectorAll('.wi[style=""] img, .wi:not([style]) img')).filter(im => im.closest('.wi').style.display !== 'none');
-    lbIdx = lbImgs.indexOf(img);
-    if(lbIdx === -1) lbIdx = 0;
-    openLb(img.src);
-  });
-});
-function openLb(src) {
-  document.getElementById('lb-img').src = src;
-  document.getElementById('lb').classList.add('on');
-  document.body.style.overflow = 'hidden';
-}
-function closeLb() {
-  document.getElementById('lb').classList.remove('on');
-  document.getElementById('lb-img').src = '';
-  document.body.style.overflow = '';
-}
-function lbNav(dir) {
-  lbImgs = Array.from(document.querySelectorAll('.wi img')).filter(im => im.closest('.wi').style.display !== 'none');
-  lbIdx = (lbIdx + dir + lbImgs.length) % lbImgs.length;
-  document.getElementById('lb-img').src = lbImgs[lbIdx].src;
-}
-document.getElementById('lb').addEventListener('click', e => { if(e.target === e.currentTarget) closeLb(); });
-document.addEventListener('keydown', e => {
-  if(e.key === 'ArrowLeft') lbNav(-1);
-  if(e.key === 'ArrowRight') lbNav(1);
-});
-
-</script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Space+Grotesk:wght@300;400&display=swap" rel="stylesheet">
@@ -87,13 +41,7 @@ ul{list-style:none}
 .hero{position:relative;height:100svh;min-height:560px;display:flex;flex-direction:column;justify-content:flex-end;padding:56px var(--pad) clamp(2rem,6vw,3.5rem);overflow:hidden;border-bottom:1px solid var(--line)}
 .hero__bg{position:absolute;inset:0;z-index:0;overflow:hidden}
 .hero__bg::after{content:'';position:absolute;inset:0;z-index:4;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");background-size:180px;opacity:.7;mix-blend-mode:overlay;pointer-events:none}
-.hero__bg-layer{position:absolute;inset:-6%;width:112%;height:112%;will-change:transform}
-.hero__bg-layer img{width:100%;height:100%;object-fit:cover;object-position:center top}
-.hero__bg-layer--a{filter:blur(4px) brightness(.45) saturate(.7);animation:drift-a 36s ease-in-out infinite alternate}
-.hero__bg-layer--b{filter:blur(4px) brightness(.4) saturate(.6);opacity:.65;animation:drift-b 48s ease-in-out infinite alternate}
-@keyframes drift-a{from{transform:scale(1.08) translate(-2%,-1%)}to{transform:scale(1.08) translate(2%,1%)}}
-@keyframes drift-b{from{transform:scale(1.12) translate(2%,.5%)}to{transform:scale(1.12) translate(-1%,-2%)}}
-@media(prefers-reduced-motion:reduce){.hero__bg-layer--a,.hero__bg-layer--b{animation:none}}
+.hero__bg-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.18) saturate(.6);transform:scale(1.05)}
 .hero__vignette{position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(ellipse at 50% 110%,rgba(7,7,7,.9) 0%,transparent 65%),linear-gradient(to top,rgba(7,7,7,.97) 0%,rgba(7,7,7,.2) 50%,rgba(7,7,7,.65) 100%)}
 .hero__content{position:relative;z-index:2}
 .hero__eyebrow{font-family:var(--fd);font-size:clamp(.5rem,.8vw + .3rem,.65rem);font-weight:400;letter-spacing:.3em;text-transform:uppercase;color:var(--dim);margin-bottom:clamp(.8rem,2vw,1.4rem);opacity:0;animation:fade-up .7s var(--ease) .2s forwards}
@@ -110,7 +58,9 @@ ul{list-style:none}
 .hero__scroll-bar{width:1px;height:28px;background:linear-gradient(to bottom,var(--dim),transparent);animation:breathe 2.8s ease-in-out infinite}
 @keyframes breathe{0%,100%{opacity:.2;transform:scaleY(.7)}50%{opacity:1;transform:scaleY(1)}}
 .disciplines{display:grid;grid-template-columns:1fr;border-bottom:1px solid var(--line)}
-@media(min-width:768px){.disciplines{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:768px){.disciplines{grid-template-columns:repeat(2,1fr)}}
+.disc--wide{grid-column:1/-1}
+@media(min-width:768px){.disc--wide{height:clamp(340px,55vh,640px)}}
 .disc{position:relative;height:clamp(280px,70svh,88svh);overflow:hidden;cursor:pointer;border-bottom:1px solid var(--line);-webkit-tap-highlight-color:transparent}
 .disc:last-child{border-bottom:none}
 @media(min-width:768px){.disc{border-bottom:none;border-right:1px solid var(--line)}.disc:last-child{border-right:none}}
@@ -279,8 +229,9 @@ ul{list-style:none}
 
 <section id="top" class="hero">
   <div class="hero__bg" aria-hidden="true">
-    <div class="hero__bg-layer hero__bg-layer--a"><img src="fotos/portadaweb.jpg" alt="" loading="eager" fetchpriority="high"></div>
-    <div class="hero__bg-layer hero__bg-layer--b"><img src="fotos/portadaweb.jpg" alt="" loading="eager"></div>
+    <video class="hero__bg-video" autoplay muted loop playsinline>
+      <source src="fotos/IA6.mp4" type="video/mp4">
+    </video>
   </div>
   <div class="hero__vignette" aria-hidden="true"></div>
   <div class="hero__content">
@@ -299,18 +250,18 @@ ul{list-style:none}
 </section>
 
 <section id="disciplines" class="disciplines">
-  <div class="disc r" onclick="showWork('ia')" role="button" tabindex="0">
+  <div class="disc disc--wide r" onclick="showWork('ia')" role="button" tabindex="0">
     <video class="disc__img" autoplay muted loop playsinline>
-      <source src="fotos/IA1.mp4" type="video/mp4">
+      <source src="fotos/IA6.mp4" type="video/mp4">
     </video>
     <div class="disc__body">
       <span class="disc__num">01</span>
       <h2 class="disc__title">AI Director</h2>
-      <p class="disc__sub">Generative imagery<br>AI video · Visual direction</p>
+      <p class="disc__sub">Generative imagery · AI video · Visual direction</p>
       <span class="disc__cta">View <span class="disc__cta-bar"></span></span>
     </div>
   </div>
-  <div class="disc r d1" onclick="showWork('foto')" role="button" tabindex="0">
+  <div class="disc r" onclick="showWork('foto')" role="button" tabindex="0">
     <video class="disc__img" autoplay muted loop playsinline><source src="fotos/portadafotos.mp4" type="video/mp4"></video>
     <div class="disc__body">
       <span class="disc__num">02</span>
@@ -319,7 +270,7 @@ ul{list-style:none}
       <span class="disc__cta">View <span class="disc__cta-bar"></span></span>
     </div>
   </div>
-  <div class="disc r d2" onclick="showWork('film')" role="button" tabindex="0">
+  <div class="disc r d1" onclick="showWork('film')" role="button" tabindex="0">
     <video class="disc__img" autoplay muted loop playsinline><source src="fotos/tomvin%20test.mp4" type="video/mp4"></video>
     <div class="disc__body">
       <span class="disc__num">03</span>
@@ -334,10 +285,10 @@ ul{list-style:none}
   <div class="work__bar">
     <span class="work__label">Work</span>
     <div class="work__filters">
-      <button class="fb on" data-f="all">All</button>
+      <button class="fb" data-f="all">All</button>
       <button class="fb" data-f="foto">Photography</button>
       <button class="fb" data-f="film">Filmmaker</button>
-      <button class="fb" data-f="ia">AI Director</button>
+      <button class="fb on" data-f="ia">AI Director</button>
     </div>
   </div>
   <div class="work__grid">
@@ -490,6 +441,9 @@ const videoObs = new IntersectionObserver((entries) => {
 }, {rootMargin: '200px'});
 document.querySelectorAll('.wi video').forEach(v => videoObs.observe(v));
 
+// ── Default work filter: AI Director ──
+applyFilter('ia');
+
 // ── Blur focus ──
 document.getElementById('n1').innerHTML = '<span class="blur-in" style="animation-delay:0.3s;display:block">Valentino</span>';
 document.getElementById('n2').innerHTML = '<span class="blur-in" style="animation-delay:0.8s;display:block">Calcagno</span>';
@@ -556,4 +510,4 @@ document.addEventListener('keydown', e => {
   <button class="lb__next" onclick="lbNav(1)">&#8594;</button>
 </div>
 </body>
-</html
+</html>

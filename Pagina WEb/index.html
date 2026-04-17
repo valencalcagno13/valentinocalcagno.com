@@ -3,10 +3,66 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="Valentino Calcagno — Fotografía, Filmmaker, Director IA. Buenos Aires.">
+<meta name="description" content="Valentino Calcagno — Photographer, Filmmaker & AI Director. Visual content for brands. Buenos Aires.">
+<meta property="og:title" content="Valentino Calcagno — Photographer, Filmmaker & AI Director">
+<meta property="og:description" content="Visual content for brands. Campaigns, fashion, events and AI-directed imagery from Buenos Aires.">
+<meta property="og:image" content="https://www.valentinocalcagno.com/fotos/portadaweb.jpg">
+<meta property="og:url" content="https://www.valentinocalcagno.com">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Valentino Calcagno — Photographer, Filmmaker & AI Director">
+<meta name="twitter:description" content="Visual content for brands. Campaigns, fashion, events and AI-directed imagery from Buenos Aires.">
+<meta name="twitter:image" content="https://www.valentinocalcagno.com/fotos/portadaweb.jpg">
+<meta name="keywords" content="photographer buenos aires, filmmaker argentina, AI director, campaign photography, fashion photography, generative imagery">
 <title>Valentino Calcagno</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSIjMDcwNzA3Ii8+PHRleHQgeD0iMTYiIHk9IjIyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0ic2VyaWYiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LXNpemU9IjE2IiBmaWxsPSIjZWZlZmVmIj5WQzwvdGV4dD48L3N2Zz4=">
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+// ── Custom cursor ──
+const cur = document.getElementById('cursor');
+if(cur) {
+  document.addEventListener('mousemove', e => {
+    cur.style.left = e.clientX + 'px';
+    cur.style.top = e.clientY + 'px';
+  }, {passive: true});
+  document.querySelectorAll('a,button,.disc,.wi').forEach(el => {
+    el.addEventListener('mouseenter', () => cur.classList.add('hover'));
+    el.addEventListener('mouseleave', () => cur.classList.remove('hover'));
+  });
+}
+
+// ── Lightbox ──
+let lbImgs = [];
+let lbIdx = 0;
+document.querySelectorAll('.wi img').forEach((img, i) => {
+  img.addEventListener('click', () => {
+    lbImgs = Array.from(document.querySelectorAll('.wi[style=""] img, .wi:not([style]) img')).filter(im => im.closest('.wi').style.display !== 'none');
+    lbIdx = lbImgs.indexOf(img);
+    if(lbIdx === -1) lbIdx = 0;
+    openLb(img.src);
+  });
+});
+function openLb(src) {
+  document.getElementById('lb-img').src = src;
+  document.getElementById('lb').classList.add('on');
+  document.body.style.overflow = 'hidden';
+}
+function closeLb() {
+  document.getElementById('lb').classList.remove('on');
+  document.getElementById('lb-img').src = '';
+  document.body.style.overflow = '';
+}
+function lbNav(dir) {
+  lbImgs = Array.from(document.querySelectorAll('.wi img')).filter(im => im.closest('.wi').style.display !== 'none');
+  lbIdx = (lbIdx + dir + lbImgs.length) % lbImgs.length;
+  document.getElementById('lb-img').src = lbImgs[lbIdx].src;
+}
+document.getElementById('lb').addEventListener('click', e => { if(e.target === e.currentTarget) closeLb(); });
+document.addEventListener('keydown', e => {
+  if(e.key === 'ArrowLeft') lbNav(-1);
+  if(e.key === 'ArrowRight') lbNav(1);
+});
+
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Space+Grotesk:wght@300;400&display=swap" rel="stylesheet">
@@ -184,12 +240,34 @@ ul{list-style:none}
 /* ── BLUR FOCUS ── */
 .blur-in{opacity:0;filter:blur(18px);animation:blur-focus 1.8s cubic-bezier(0.16,1,0.3,1) forwards}
 @keyframes blur-focus{0%{opacity:0;filter:blur(18px);transform:scale(1.04)}100%{opacity:1;filter:blur(0);transform:scale(1)}}
+
+/* ── INSTAGRAM FLOAT ── */
 .ig-float{position:fixed;bottom:1.5rem;right:1.5rem;z-index:80;width:44px;height:44px;border-radius:50%;background:var(--bg2);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;transition:border-color .2s,transform .3s var(--ease);-webkit-tap-highlight-color:transparent}
 .ig-float:hover{border-color:var(--fog);transform:scale(1.1)}
-.ig-float svg{width:18px;height:18px}</style>
-</head>
-<a class="ig-float" href="https://www.instagram.com/valentinocalcagno_" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="#efefef" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="#efefef" stroke="none"/></svg></a><body>
+.ig-float svg{width:18px;height:18px}
 
+/* ── CUSTOM CURSOR ── */
+@media(hover:hover){
+  *{cursor:none!important}
+  .cursor{position:fixed;width:8px;height:8px;border-radius:50%;background:var(--white);pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform .15s var(--ease),opacity .2s;mix-blend-mode:difference}
+  .cursor.hover{transform:translate(-50%,-50%) scale(2.5);opacity:.6}
+}
+
+/* ── LIGHTBOX ── */
+.lb{display:none;position:fixed;inset:0;z-index:300;background:rgba(0,0,0,.96);align-items:center;justify-content:center;padding:var(--pad)}
+.lb.on{display:flex}
+.lb__img{max-width:90vw;max-height:90vh;object-fit:contain;border:none}
+.lb__x{position:absolute;top:1.2rem;right:1.5rem;color:var(--dim);font-family:var(--fd);font-size:.54rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;cursor:none;transition:color .2s;background:none;border:none}
+.lb__x:hover{color:var(--white)}
+.lb__prev,.lb__next{position:absolute;top:50%;transform:translateY(-50%);color:var(--dim);font-size:1.5rem;background:none;border:none;padding:1rem;transition:color .2s;cursor:none}
+.lb__prev:hover,.lb__next:hover{color:var(--white)}
+.lb__prev{left:.5rem}
+.lb__next{right:.5rem}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
 <nav class="nav" id="nav">
   <a class="nav__logo" href="#top">VC</a>
   <ul class="nav__links">
@@ -351,7 +429,7 @@ ul{list-style:none}
 <footer class="footer">
   <span class="footer__copy">© 2025 Valentino Calcagno</span>
   <div class="footer__links">
-     <a href="https://www.instagram.com/valentinocalcagno_" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://www.instagram.com/valentinocalcagno_" target="_blank" rel="noopener">Instagram</a>
     <a href="#" target="_blank" rel="noopener">Behance</a>
     <a href="#" target="_blank" rel="noopener">VSCO</a>
   </div>
@@ -403,6 +481,67 @@ function sendForm(e){
 // ── Blur focus ──
 document.getElementById('n1').innerHTML = '<span class="blur-in" style="animation-delay:0.3s;display:block">Valentino</span>';
 document.getElementById('n2').innerHTML = '<span class="blur-in" style="animation-delay:0.8s;display:block">Calcagno</span>';
+
+// ── Custom cursor ──
+const cur = document.getElementById('cursor');
+if(cur) {
+  document.addEventListener('mousemove', e => {
+    cur.style.left = e.clientX + 'px';
+    cur.style.top = e.clientY + 'px';
+  }, {passive: true});
+  document.querySelectorAll('a,button,.disc,.wi').forEach(el => {
+    el.addEventListener('mouseenter', () => cur.classList.add('hover'));
+    el.addEventListener('mouseleave', () => cur.classList.remove('hover'));
+  });
+}
+
+// ── Lightbox ──
+let lbImgs = [];
+let lbIdx = 0;
+document.querySelectorAll('.wi img').forEach((img, i) => {
+  img.addEventListener('click', () => {
+    lbImgs = Array.from(document.querySelectorAll('.wi[style=""] img, .wi:not([style]) img')).filter(im => im.closest('.wi').style.display !== 'none');
+    lbIdx = lbImgs.indexOf(img);
+    if(lbIdx === -1) lbIdx = 0;
+    openLb(img.src);
+  });
+});
+function openLb(src) {
+  document.getElementById('lb-img').src = src;
+  document.getElementById('lb').classList.add('on');
+  document.body.style.overflow = 'hidden';
+}
+function closeLb() {
+  document.getElementById('lb').classList.remove('on');
+  document.getElementById('lb-img').src = '';
+  document.body.style.overflow = '';
+}
+function lbNav(dir) {
+  lbImgs = Array.from(document.querySelectorAll('.wi img')).filter(im => im.closest('.wi').style.display !== 'none');
+  lbIdx = (lbIdx + dir + lbImgs.length) % lbImgs.length;
+  document.getElementById('lb-img').src = lbImgs[lbIdx].src;
+}
+document.getElementById('lb').addEventListener('click', e => { if(e.target === e.currentTarget) closeLb(); });
+document.addEventListener('keydown', e => {
+  if(e.key === 'ArrowLeft') lbNav(-1);
+  if(e.key === 'ArrowRight') lbNav(1);
+});
+
 </script>
+
+<a class="ig-float" href="https://www.instagram.com/valentinocalcagno_" target="_blank" rel="noopener" aria-label="Instagram">
+  <svg viewBox="0 0 24 24" fill="none" stroke="#efefef" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="2" y="2" width="20" height="20" rx="5"/>
+    <circle cx="12" cy="12" r="4"/>
+    <circle cx="17.5" cy="6.5" r="0.5" fill="#efefef" stroke="none"/>
+  </svg>
+</a>
+
+<div class="lb" id="lb">
+  <button class="lb__x" onclick="closeLb()">✕ Close</button>
+  <button class="lb__prev" onclick="lbNav(-1)">&#8592;</button>
+  <img class="lb__img" id="lb-img" src="" alt="">
+  <button class="lb__next" onclick="lbNav(1)">&#8594;</button>
+</div>
 </body>
 </html>

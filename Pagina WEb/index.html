@@ -6,6 +6,7 @@
 <meta name="description" content="Valentino Calcagno — Fotografía, Filmmaker, Director IA. Buenos Aires.">
 <title>Valentino Calcagno</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSIjMDcwNzA3Ii8+PHRleHQgeD0iMTYiIHk9IjIyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0ic2VyaWYiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LXNpemU9IjE2IiBmaWxsPSIjZWZlZmVmIj5WQzwvdGV4dD48L3N2Zz4=">
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Space+Grotesk:wght@300;400&display=swap" rel="stylesheet">
@@ -57,7 +58,7 @@ ul{list-style:none}
 .disc{position:relative;height:clamp(280px,70svh,88svh);overflow:hidden;cursor:pointer;border-bottom:1px solid var(--line);-webkit-tap-highlight-color:transparent}
 .disc:last-child{border-bottom:none}
 @media(min-width:768px){.disc{border-bottom:none;border-right:1px solid var(--line)}.disc:last-child{border-right:none}}
-.disc__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;filter:brightness(.3);transform:scale(1.05);transition:filter .8s var(--ease),transform 1.1s var(--ease);will-change:transform,filter}
+.disc__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;filter:brightness(.3);transform:scale(1.05);transition:filter .8s var(--ease),transform 1.1s var(--ease);will-change:transform,filter}@media(max-width:767px){.disc__img{filter:brightness(.45)}}
 .disc:hover .disc__img,.disc.tapped .disc__img{filter:brightness(.16);transform:scale(1.12)}
 .disc__body{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:var(--pad);z-index:2}
 .disc__num{font-size:.5rem;font-weight:700;letter-spacing:.4em;text-transform:uppercase;color:rgba(255,255,255,.15);margin-bottom:.8rem}
@@ -106,7 +107,7 @@ ul{list-style:none}
 @media(min-width:768px){.about__left{border-bottom:none;border-right:1px solid var(--line)}}
 .about__label{font-family:var(--fd);font-size:.54rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--muted)}
 .about__text{font-family:var(--fd);font-size:clamp(1.3rem,3.5vw,2rem);font-weight:700;line-height:1.15;letter-spacing:-.02em}
-.about__text em{font-style:normal;color:var(--muted)}
+.about__text em{font-style:normal;color:#ffffff}
 .about__cta{display:inline-flex;align-items:center;gap:.7rem;font-family:var(--fd);font-size:.56rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;transition:gap .38s var(--ease)}
 .about__cta-bar{width:20px;height:1px;background:var(--white);transition:width .38s var(--ease);flex-shrink:0}
 .about__cta:hover{gap:1.1rem}
@@ -125,7 +126,7 @@ ul{list-style:none}
 .contact__left{padding:clamp(3rem,8vw,5.5rem) var(--pad);display:flex;flex-direction:column;justify-content:space-between;gap:2rem;border-bottom:1px solid var(--line)}
 @media(min-width:768px){.contact__left{border-bottom:none;border-right:1px solid var(--line)}}
 .contact__head{font-family:var(--fd);font-size:clamp(2.8rem,9vw,6rem);font-weight:800;line-height:.9;letter-spacing:-.04em}
-.contact__head em{font-style:normal;color:var(--muted)}
+.contact__head em{font-style:normal;color:#ffffff}
 .contact__email{font-size:clamp(.65rem,1.8vw,.8rem);letter-spacing:.05em;color:var(--dim);border-bottom:1px solid var(--line);padding-bottom:3px;display:inline-block;transition:color .2s,border-color .2s}
 .contact__email:hover{color:var(--white);border-color:var(--dim)}
 .contact__right{padding:clamp(3rem,8vw,5.5rem) var(--pad);background:var(--bg2)}
@@ -138,7 +139,7 @@ ul{list-style:none}
 @media(max-width:400px){.fg-row{grid-template-columns:1fr;gap:0}}
 .submit-btn{margin-top:1.5rem;background:var(--white);color:var(--bg);padding:.85rem 2.2rem;font-family:var(--fd);font-size:.56rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;border-radius:100px;transition:opacity .2s;-webkit-appearance:none}
 .submit-btn:hover{opacity:.75}
-.form-ok{display:none;font-family:var(--fd);font-size:1rem;font-weight:700;color:var(--dim);line-height:1.4;padding-top:.5rem}
+.form-ok{display:none;font-family:var(--fd);font-size:1rem;font-weight:700;color:var(--dim);line-height:1.4;padding-top:.5rem}.form-err{display:none;font-family:var(--fd);font-size:.8rem;font-weight:400;color:#c0392b;line-height:1.4;padding-top:.5rem}
 .footer{padding:1.4rem var(--pad);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.6rem;border-top:1px solid var(--line)}
 .footer__copy{font-size:.52rem;letter-spacing:.1em;color:var(--muted)}
 .footer__links{display:flex;gap:1.5rem}
@@ -313,7 +314,7 @@ ul{list-style:none}
 <section id="about" class="about">
   <div class="about__left">
     <span class="about__label r">About</span>
-    <p class="about__text r d1">I shoot, direct<br>and generate images<br><em>from Buenos Aires.</em></p>
+    <p class="about__text r d1">I shoot, direct<br>and generate images<br><span style="color:#ffffff">from Buenos Aires.</span></p>
     <a class="about__cta r d2" href="#contact">Let's work together <span class="about__cta-bar"></span></a>
   </div>
   <div class="about__right">
@@ -328,19 +329,20 @@ ul{list-style:none}
 
 <section id="contact" class="contact">
   <div class="contact__left">
-    <h2 class="contact__head r">Let's talk<br><em>about light.</em></h2>
+    <h2 class="contact__head r">Let's talk<br><span style="color:#ffffff">about light.</span></h2>
     <a class="contact__email r d1" href="mailto:valencalcagno13@gmail.com">valencalcagno13@gmail.com</a>
   </div>
   <div class="contact__right r d1">
-    <form id="cf" onsubmit="sendForm(event)">
+    <form id="cf" onsubmit="sendForm(event)" novalidate>
       <div class="fg-row">
-        <div class="fg"><label>Name</label><input type="text" placeholder="Your name" required autocomplete="name"></div>
-        <div class="fg"><label>Email</label><input type="email" placeholder="your@email.com" required autocomplete="email"></div>
+        <div class="fg"><label>Name</label><input type="text" name="from_name" placeholder="Your name" required autocomplete="name"></div>
+        <div class="fg"><label>Email</label><input type="email" name="reply_to" placeholder="your@email.com" required autocomplete="email"></div>
       </div>
-      <div class="fg" style="margin-top:1.3rem"><label>Message</label><textarea rows="4" placeholder="Write your message..."></textarea></div>
-      <button class="submit-btn" type="submit">Send</button>
+      <div class="fg" style="margin-top:1.3rem"><label>Message</label><textarea name="message" rows="4" placeholder="Write your message..." required></textarea></div>
+      <button class="submit-btn" type="submit" id="submit-btn">Send</button>
     </form>
     <p class="form-ok" id="form-ok">Message received —<br>talk soon.</p>
+    <p class="form-err" id="form-err">Something went wrong —<br>try again or email directly.</p>
   </div>
 </section>
 
@@ -355,6 +357,8 @@ ul{list-style:none}
 
 <script>
 'use strict';
+// EmailJS init — replace PUBLIC_KEY with your actual key
+emailjs.init('w_oDxOmsg_Iukka97');
 const nav=document.getElementById('nav');
 window.addEventListener('scroll',()=>nav.classList.toggle('solid',scrollY>40),{passive:true});
 const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target)}}),{threshold:.06,rootMargin:'0px 0px -30px 0px'});
@@ -371,7 +375,27 @@ document.querySelectorAll('[data-yt]').forEach(el=>{el.addEventListener('click',
 function closeModal(){document.getElementById('modal').classList.remove('on');document.getElementById('yt-frame').src='';document.body.style.overflow=''}
 document.getElementById('modal').addEventListener('click',e=>{if(e.target===e.currentTarget)closeModal()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
-function sendForm(e){e.preventDefault();document.getElementById('cf').style.display='none';document.getElementById('form-ok').style.display='block'}
+function sendForm(e){
+  e.preventDefault();
+  const btn=document.getElementById('submit-btn');
+  const form=document.getElementById('cf');
+  const ok=document.getElementById('form-ok');
+  const err=document.getElementById('form-err');
+  // Basic honeypot check
+  btn.textContent='Sending...';
+  btn.disabled=true;
+  err.style.display='none';
+  emailjs.sendForm('service_fnembaa','template_5umjbhy',form,'w_oDxOmsg_Iukka97')
+    .then(()=>{
+      form.style.display='none';
+      ok.style.display='block';
+    })
+    .catch(()=>{
+      err.style.display='block';
+      btn.textContent='Send';
+      btn.disabled=false;
+    });
+}
 
 
 // ── Blur focus ──
